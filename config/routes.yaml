@@ -1,6 +1,9 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
-app_lucky_number:
-    path: /lucky/number
-    controller: App\Controller\HomeController::number
+# config/routes.yaml
+
+# the "app_lucky_number" route name is not important yet
+app_home:
+    path: dstoi/
+    controller: App\Controller\HomeController::index

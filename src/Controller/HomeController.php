@@ -1,13 +1,21 @@
 <?
 namespace App\Controller;
 use Symfony\Component\HttpFoundation\Response;
-class HomeController
+use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+class HomeController extends AbstractController
 {
-    public function number()
+    /**
+     * @Route("/home/")
+     */
+    public function index()
     {
         $number = random_int(0, 100);
-        return new Response(
-            '<html><body>Lucky number' .$number .'</body></html>'
+        return $this->render(
+            'home/home.html.twig',
+            [
+                'number' => $number,
+            ]
         );
     }
 }
