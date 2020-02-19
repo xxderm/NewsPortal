@@ -12,17 +12,20 @@ class HomeController extends AbstractController
      */
     public function index()
     {
-
-        var_dump( $this->getDoctrine()->getRepository(Entities::class)->findAll());
-        die();
-
-        $number = random_int(0, 100);
         return $this->render(
             'home/home.html.twig',
             [
-                'number' => $number,
                 'title' => 'Home',
             ]
         );
+    }
+    public function getNavContent()
+    {
+        $NavContentArray = [];
+        foreach($this->getDoctrine()
+                    ->getRepository(Entities::class)
+                    ->findAll() as $value)
+            $NavContentArray[] = $value->getName();
+        return $NavContentArray;
     }
 }
