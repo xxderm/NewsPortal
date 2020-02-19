@@ -5,12 +5,34 @@
 		<title>
 			{% block title %}{% endblock %}
 		</title>
+		{% block js %}
+			<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+			<script src="./public/js/nav-toggle.js"></script>
+		{% endblock %}
 		{% block stylesheets %}
 			<link rel="stylesheet" href="./public/styles/style.css">
 		{% endblock %}
 	</head>
 	<body>
-		{% block body %}{% endblock %}
+		{% block body %}
+			<div id="slidetoggle"><img src="https://img.icons8.com/officel/30/000000/menu.png"></div>
+			<header>
+				<div class="header_logo clearfix">
+					<center class="clearfix">
+						DSTOI NEWS
+					</center>
+				</div>
+				<nav id="block">
+					<ul>
+						{% for item in nav_content.getNavContent %}
+							<li>
+								<a href="#">{{ item }}</a>
+							</li>
+						{% endfor %}
+					</ul>
+				</nav>
+			</header>
+		{% endblock %}
 		{% block javascripts %}{% endblock %}
 	</body>
 </html>

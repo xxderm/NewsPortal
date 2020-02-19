@@ -7,18 +7,5 @@
 {% endblock %}
 
 {% block body %}
-	<header>
-		<div class="header_logo clearfix">
-			<center class="clearfix">
-				DSTOI NEWS
-			</center>
-		</div>
-		<nav>
-			{% for item in nav_content.getNavContent %}
-				<p>{{item}}</p>
-			{% endfor %}
-		</nav>
-
-
-	</header>
+	{{parent()}}
 {% endblock %}
