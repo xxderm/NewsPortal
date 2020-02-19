@@ -1,1 +1,11 @@
-<h1>test {{ number }}</h1>
+{% extends "./base.html.twig" %}
+{% block title %}
+    {{title}}
+{% endblock %}
+{% block stylesheets %}
+
+{% endblock %}
+
+{% block body %}
+{{number}}
+{% endblock %}

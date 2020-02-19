@@ -15,6 +15,7 @@ class HomeController extends AbstractController
             'home/home.html.twig',
             [
                 'number' => $number,
+                'title' => 'Home',
             ]
         );
     }
