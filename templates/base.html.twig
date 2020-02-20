@@ -15,7 +15,10 @@
 	</head>
 	<body>
 		{% block body %}
-			<div id="slidetoggle"><img src="https://img.icons8.com/officel/30/000000/menu.png"></div>
+			<div id="slidetoggle">
+				<img src="https://img.icons8.com/officel/30/000000/menu.png">
+			</div>
+
 			<header>
 				<div class="header_logo clearfix">
 					<center class="clearfix">
@@ -23,6 +26,10 @@
 					</center>
 				</div>
 				<nav id="block">
+					<center style="border: 1px solid black; background-color: #222; padding-bottom:20px;">
+						<a style="text-decoration:none; color:white;font-size:14px;" href="./SignUp">Регистрация</a>
+						<a style="text-decoration:none;color:white;font-size:14px;" href="./SignIn">Вход</a>
+					</center>
 					<ul>
 						{% for item in nav_content.getNavContent %}
 							<li>

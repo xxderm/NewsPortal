@@ -27,7 +27,7 @@ center {
 header nav {
     width: 250px;
     background-color: rgb(59, 59, 59);
-    height: 88.8%;
+    height: 100vh;
     overflow-y: hidden;
     position: absolute;
 }
