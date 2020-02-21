@@ -7,3 +7,20 @@
 app_home:
     path: dstoi/
     controller: App\Controller\HomeController::index
+    methods: GET
+auth_signup:
+    path: dstoi/SignUp
+    controller: App\Controller\AuthorizationController::getSignUp
+    methods: GET
+auth_signup_post:
+    path: dstoi/SignUp
+    controller: App\Controller\AuthorizationController::postSignUp
+    methods: POST
+auth_signin:
+    path: dstoi/SignIn
+    controller: App\Controller\AuthorizationController::getSignIn
+    methods: GET
+auth_signin_post:
+    path: dstoi/SignIn
+    controller: App\Controller\AuthorizationController::postSignIn
+    methods: POST

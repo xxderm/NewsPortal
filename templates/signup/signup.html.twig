@@ -1,0 +1,32 @@
+{% extends "./base.html.twig" %}
+{% block title %}
+	{{title}}
+{% endblock %}
+{% block stylesheets %}
+	{{parent()}}
+	<link rel="stylesheet" href="./public/styles/signup.scss">
+{% endblock %}
+{% block js %}
+	{{parent()}}
+	<script src="./public/js/signup.js"></script>
+{% endblock %}
+
+{% block body %}
+	{{parent()}}
+
+	<div class="login-page">
+		<div class="form">
+			<form class="register-form" method="post" action="{{ path('auth_signup') }}">
+				<input name="username" type="text" placeholder="name"/>
+				<input name="password" type="password" placeholder="password"/>
+				<input name="email" type="text" placeholder="email address"/>
+				<button>create</button>
+				<p class="message">Already registered?
+					<a href="./SignIn">Sign In</a>
+				</p>
+			</form>
+		</div>
+	</div>
+
+
+{% endblock %}

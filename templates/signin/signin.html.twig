@@ -1,0 +1,29 @@
+{% extends "./base.html.twig" %}
+{% block title %}
+	{{title}}
+{% endblock %}
+{% block stylesheets %}
+	{{parent()}}
+	<link rel="stylesheet" href="./public/styles/signin.scss">
+{% endblock %}
+{% block js %}
+	{{parent()}}
+	<script src="./public/js/signup.js"></script>
+{% endblock %}
+
+{% block body %}
+	{{parent()}}
+
+	<div class="login-page">
+		<div class="form">
+			<form class="login-form" action="{{ path('auth_signin') }}" autocomplete="off" method="post">
+				<input name="username" type="text" placeholder="username"/>
+				<input name="password" type="password" placeholder="password"/>
+				<button>login</button>
+				<p class="message">Not registered?
+					<a href="./SignUp">Create an account</a>
+				</p>
+			</form>
+		</div>
+	</div>
+{% endblock %}
