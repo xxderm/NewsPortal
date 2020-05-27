@@ -24,3 +24,23 @@ auth_signin_post:
     path: dstoi/SignIn
     controller: App\Controller\AuthorizationController::postSignIn
     methods: POST
+auth_logout:
+    path: dstoi/LogOut
+    controller: App\Controller\AuthorizationController::logOut
+    methods: GET
+usr_profile:
+    path: dstoi/Profile
+    controller: App\Controller\ProfileController::index
+    methods: GET
+app_content:
+    path: dstoi/append
+    controller: App\Controller\ContentController:index
+    methods: GET
+app_content_post:
+    path: dstoi/append
+    controller: App\Controller\ContentController:postContent
+    methods: POST 
+app_page_content:
+    path: dstoi/{id}
+    controller: App\Controller\ViewContentController:page
+    methods: GET 

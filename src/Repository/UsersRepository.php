@@ -19,4 +19,26 @@ class UsersRepository extends EntityRepository
         ')->setParameter('Name', $name);
         return $query->getResult();
     }
+    public function findUserById($id)
+    {
+        $entityManager = $this->getEntityManager();
+        $query = $entityManager->createQuery('
+            SELECT u 
+            FROM App\Entity\Users u 
+            WHERE u.id = :id
+            ORDER BY u.Name ASC
+        ')->setParameter('id', $id);
+        return $query->getResult();
+    }
+    public function findUserByPasswordHash($password)
+    {
+        $entityManager = $this->getEntityManager();
+        $query = $entityManager->createQuery('
+            SELECT u 
+            FROM App\Entity\Users u 
+            WHERE u.Password = MD5(:Pass)
+            ORDER BY u.Name ASC
+        ')->setParameter('Pass', $password);
+        return $query->getResult();
+    }
 }

@@ -1,0 +1,36 @@
+aside:first-child {
+    margin-top: 100px;
+}
+
+aside {
+    margin-top: 10px;
+    margin-left: 280px;
+    width: 65%;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+    background-color: rgba(196, 236, 255, 0.3);
+    word-wrap: break-word;
+}
+
+aside:hover {
+    background-color: rgba(196, 236, 255, 0.5);
+}
+
+aside span {
+    color: rgb(122, 122, 122);
+}
+
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+code {
+    background-color: #eee;
+    border-radius: 3px;
+    font-family: courier, monospace;
+    padding: 0 3px;
+}

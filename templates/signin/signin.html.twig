@@ -4,7 +4,7 @@
 {% endblock %}
 {% block stylesheets %}
 	{{parent()}}
-	<link rel="stylesheet" href="./public/styles/signin.scss">
+	<link rel="stylesheet" href="./public/styles/signin.css">
 {% endblock %}
 {% block js %}
 	{{parent()}}
@@ -17,8 +17,10 @@
 	<div class="login-page">
 		<div class="form">
 			<form class="login-form" action="{{ path('auth_signin') }}" autocomplete="off" method="post">
+				<input type="hidden" name="token" , value="{{ csrf_token('signin') }}"/>
 				<input name="username" type="text" placeholder="username"/>
 				<input name="password" type="password" placeholder="password"/>
+				<p style="color:red;">{{ error }}</p>
 				<button>login</button>
 				<p class="message">Not registered?
 					<a href="./SignUp">Create an account</a>

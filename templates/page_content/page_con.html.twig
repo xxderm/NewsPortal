@@ -1,0 +1,14 @@
+{% extends "./base.html.twig" %}
+{% block title %}
+	{{title}}
+{% endblock %}
+{% block stylesheets %}
+	{{parent()}}
+{% endblock %}
+
+{% block body %}
+	{{parent()}}
+	<div class="container" style="margin-top:90px;margin-left:25%; width:48%;">
+		{{con_p.0.Content | raw}}
+	</div>
+{% endblock %}

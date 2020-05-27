@@ -1,0 +1,22 @@
+#container {
+    width: 65%;
+    /*border: 2px solid black;*/
+    margin-left: 255px;
+}
+
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+#content center .usrname {
+    float: left;
+    color: black;
+}
+
+#content center p {
+    font-size: 14px;
+    float: left;
+    color: black;
+}

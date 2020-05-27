@@ -4,7 +4,7 @@
 {% endblock %}
 {% block stylesheets %}
 	{{parent()}}
-	<link rel="stylesheet" href="./public/styles/signup.scss">
+	<link rel="stylesheet" href="./public/styles/signup.css">
 {% endblock %}
 {% block js %}
 	{{parent()}}
@@ -13,13 +13,25 @@
 
 {% block body %}
 	{{parent()}}
-
 	<div class="login-page">
 		<div class="form">
 			<form class="register-form" method="post" action="{{ path('auth_signup') }}">
+				<input type="hidden" name="token" , value="{{ csrf_token('signup') }}"/>
 				<input name="username" type="text" placeholder="name"/>
+
 				<input name="password" type="password" placeholder="password"/>
-				<input name="email" type="text" placeholder="email address"/>
+				<p></p>
+				<input name="email" type="email" placeholder="email address"/>
+				<p></p>
+				{% if ValidationError %}
+					<ul>
+						{% for err in error %}
+							<li style="color:red;">{{ err.message }}</li>
+						{% endfor %}
+					</ul>
+				{% else %}
+					<p style="color:red;">{{ error }}</p>
+				{% endif %}
 				<button>create</button>
 				<p class="message">Already registered?
 					<a href="./SignIn">Sign In</a>

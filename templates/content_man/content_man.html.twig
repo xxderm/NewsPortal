@@ -1,0 +1,96 @@
+{% extends "./base.html.twig" %}
+{% block title %}
+	{{title}}
+{% endblock %}
+{% block stylesheets %}
+	{{parent()}}
+	<link rel="stylesheet" href="./public/styles/mce.css">
+
+{% endblock %}
+{% block js %}
+	{{parent()}}
+	<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+	<script>
+		tinymce.init({
+			selector: 'textarea',
+			plugins:'image, visualblocks, table, codesample, directionality, lists, link, pagebreak, noneditable, paste, template',					
+			});
+	</script>
+
+{% endblock %}
+
+{% block body %}
+	{{parent()}}
+	<form class="register-form" method="post" action="{{ path('app_content_post') }}" style="padding-top:50px;">
+		{% if usr.getRoleId == 2 %}
+			{% if changecontent %}
+				<h2 style="color:black;margin-left:250px;">Change mod</h2>
+			{% else %}
+				<h2 style="color:black;margin-left:250px;">Append mode</h2>
+			{% endif %}
+		{% else %}
+			{% if changecontent %}
+				<h2 style="color:black;margin-left:250px;">Change mod</h2>
+			{% else %}
+				<h2 style="color:black;margin-left:250px;">Request mode</h2>
+			{% endif %}
+		{% endif %}
+		<label style="margin-left:250px;">Категория:
+		</label>
+		<select style="margin-left:5px; margin-top:5px;" name="category">
+			{% for type, items in nav_content.getNavContent %}
+				{% for key, value in items %}
+					{% if key == 'Name' %}
+						<option value="{{value}}">
+							{{value}}
+						</option>
+						{% if changecontent %}
+							{% if changecontent.0.EntityId == value %}
+								<option selected value="{{value}}">
+									{{value}}
+								</option>
+							{% endif %}
+						{% endif %}
+					{% endif %}
+				{% endfor %}
+			{% endfor %}
+		</select>
+		<br/>
+		<label style="margin-left:250px;">Название:
+		</label>
+		{% if changecontent %}
+			<input name="title" value="{{changecontent.0.getTitle}}" style="margin-left:10px; margin-top:5px;" type="text"/>
+		{% else %}
+			<input name="title" style="margin-left:10px; margin-top:5px;" type="text"/>
+		{% endif %}
+		<br/>
+		<label style="margin-left:250px;">Описание:
+		</label>
+		{% if changecontent %}
+			<input name="desc" value="{{changecontent.0.getDescription}}" style="margin-left:6px; margin-top:5px;" type="text"/>
+		{% else %}
+			<input name="desc" style="margin-left:10px; margin-top:5px;" type="text"/>
+		{% endif %}
+		<textarea name="append_data" rows="45">
+			{% if changecontent %}
+				{{changecontent.0.getContent | raw}}
+			{% endif %}
+		</textarea>
+		{% if changecontent %}
+			<input name="IsUpdate" value="{{changecontent.0.getId}}" visibility="hidden"/>
+		{% endif %}
+		<center>
+			<button style="margin-left:250px;
+																																																																																																																																												background-color: #4CAF50;
+																																																																																																																																												border: none;
+																																																																																																																																												color: white;
+																																																																																																																																												padding: 15px 32px;
+																																																																																																																																												text-align: center;
+																																																																																																																																												text-decoration: none;
+																																																																																																																																												display: inline-block;
+																																																																																																																																												font-size: 16px;">
+				Append
+			</button>
+		</center>
+	</form>
+{% endblock %}

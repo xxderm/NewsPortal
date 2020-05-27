@@ -1,0 +1,35 @@
+{% extends "./base.html.twig" %}
+{% block title %}
+	{{title}}
+{% endblock %}
+{% block stylesheets %}
+	{{parent()}}
+	<link rel="stylesheet" href="./public/styles/profile.css">
+{% endblock %}
+
+{% block body %}
+	{{parent()}}
+	<div id="container" style="margin-top:50px;">
+		<div id="content">
+			<center class="clearfix">
+				<div class="usrname">
+					{{ usr.getName() }}
+				</div>
+				{% if usr.getRoleId() == 2 %}
+					<br/>
+					<p>Here since the beginning.</p>
+				{% else %}
+					<br/>
+					<p>Playing since:
+						{% if usr.getRegDate() %}
+							{{ usr.getRegDate() }}
+						{% else %}
+							Станет доступно после повторной авторизации
+						{% endif %}
+					</p>
+				{% endif %}
+
+			</center>
+		</div>
+	</div>
+{% endblock %}
