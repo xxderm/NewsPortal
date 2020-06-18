@@ -1,6 +1,7 @@
 <?
 namespace App\Controller;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use App\Entity\Entities;
@@ -19,11 +20,21 @@ class HomeController extends AbstractController
     /**
      * @Route("/home/")
      */
-    public function index()
+    public function index(Request $req)
     {
-        $res = $this->getDoctrine()
-            ->getRepository(News::class)
-            ->findAllNews();
+        $res = $this->getDoctrine();
+        // Если поиск по категории:
+        if(! is_null($req->get('Category')))
+        {
+            $entities = $this->getDoctrine()
+                ->getRepository(Entities::class)
+                ->findEntitiesByName($req->get('Category'));
+            $res = $res->getRepository(News::class)->findNewsByEntityID($entities[0]->getId());
+        }
+        else
+        {
+            $res = $res->getRepository(News::class)->findAllNews();
+        }
         foreach ($res as $re)
         {
             $users = $this->getDoctrine()

@@ -44,3 +44,7 @@ app_page_content:
     path: dstoi/{id}
     controller: App\Controller\ViewContentController:page
     methods: GET 
+app_request:
+    path: dstoi/append/requests
+    controller: App\Controller\RequestController:page
+    methods: GET

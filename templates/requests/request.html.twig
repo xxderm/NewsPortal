@@ -1,0 +1,13 @@
+{% extends "./base.html.twig" %}
+{% block title %}
+	{{title}}
+{% endblock %}
+{% block stylesheets %}
+	{{parent()}}
+{% endblock %}
+
+{% block body %}
+	{{parent()}}
+	{% set usr = app.session.get('object_symfony_session_usr') %}
+	<div></div>
+{% endblock %}

@@ -31,4 +31,15 @@ class NewsRepository extends EntityRepository
         ');
         return $query->getResult();
     }
+    public function findNewsByEntityID($id)
+    {
+        $entityManager = $this->getEntityManager();
+        $query = $entityManager->createQuery('
+            SELECT u 
+            FROM App\Entity\News u 
+            WHERE u.Entity_id = :id
+            ORDER BY u.Title DESC
+        ')->setParameter('id', $id);
+        return $query->getResult();
+    }
 }

@@ -45,7 +45,7 @@
 									<a href="{{ path('append') }}">Append</a>
 								</li>
 								<li>
-									<a href="./append/requests">Requests</a>
+									<a href="{{ path('Req') }}">Requests</a>
 								</li>
 							{% else %}
 								{% if usr.getRoleId() == 1 %}
@@ -63,7 +63,7 @@
 									{% for key, value in items %}
 										{% if key == 'Name' %}
 											<li>
-												<a href="./{{value}}">{{ value }}</a>
+												<a href="./?Category={{value}}">{{ value }}</a>
 											</li>
 										{% endif %}
 									{% endfor %}
