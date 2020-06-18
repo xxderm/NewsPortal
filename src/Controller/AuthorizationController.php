@@ -1,4 +1,4 @@
-<?
+<?php
 namespace App\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -132,3 +132,4 @@ class AuthorizationController extends AbstractController
         return $this->redirect('./SignIn?error=Csrf token invalid.');
     }
 }
+?>
