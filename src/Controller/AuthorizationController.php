@@ -20,7 +20,7 @@ class AuthorizationController extends AbstractController
     }
 
     /**
-     * @Route("/SignUp/")
+     * @Route("dstoi/SignUp/", name="auth_signup", methods={"GET"})
      */
     public function getSignUp()
     {
@@ -36,6 +36,9 @@ class AuthorizationController extends AbstractController
             ]
         );
     }
+	 /**
+     * @Route("dstoi/SignUp/", name="auth_signup_post", methods={"POST"})
+     */
     public function postSignUp(Request $req, ValidatorInterface $validator)
     {
         $submit = $req->request->get('token');
@@ -79,7 +82,7 @@ class AuthorizationController extends AbstractController
         return $this->redirect('./SignUp?error=Csrf token invalid.');
     }
     /**
-     * @Route("/SignIn/")
+     * @Route("dstoi/SignIn/", name="auth_signin", methods={"GET"})
      */
     public function getSignIn()
     {
@@ -95,11 +98,17 @@ class AuthorizationController extends AbstractController
             ]
         );
     }
+	 /**
+     * @Route("dstoi/SignIn/", name="auth_logout", methods={"GET"})
+     */
     public function logOut()
     {
         $this->session->remove('object_symfony_session_usr');
         return $this->redirect('/');
     }
+	 /**
+     * @Route("dstoi/SignIn/", name="auth_signin_post", methods={"POST"})
+     */
     public function postSignIn(Request $req)
     {
         $submit = $req->request->get('token');

@@ -34,17 +34,17 @@ usr_profile:
     methods: GET
 app_content:
     path: dstoi/append
-    controller: App\Controller\ContentController:index
+    controller: App\Controller\ContentController::index
     methods: GET
 app_content_post:
     path: dstoi/append
-    controller: App\Controller\ContentController:postContent
+    controller: App\Controller\ContentController::postContent
     methods: POST 
 app_page_content:
     path: dstoi/{id}
-    controller: App\Controller\ViewContentController:page
+    controller: App\Controller\ViewContentController::page
     methods: GET 
 app_request:
     path: dstoi/append/requests
-    controller: App\Controller\RequestController:page
+    controller: App\Controller\RequestController::index
     methods: GET
