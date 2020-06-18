@@ -34,7 +34,7 @@ class HomeController extends AbstractController
         else
         {
             $res = $res->getRepository(News::class)->findAllNews();
-        }
+        }		
         foreach ($res as $re)
         {
             $users = $this->getDoctrine()

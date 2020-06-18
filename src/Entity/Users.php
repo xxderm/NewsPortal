@@ -37,9 +37,9 @@ class Users
      * @Assert\NotBlank(message="Password: value should not be blank")
      * @Assert\Length(
      *      min = 4,
-     *      max = 50,
+     *      max = 100,
      *      minMessage = "Password must be at least 4 characters long",
-     *      maxMessage = "Password cannot be longer than 50 characters"
+     *      maxMessage = "Password cannot be longer than 100 characters"
      * )
      */
     private $Password;

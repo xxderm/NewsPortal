@@ -36,7 +36,7 @@ class UsersRepository extends EntityRepository
         $query = $entityManager->createQuery('
             SELECT u 
             FROM App\Entity\Users u 
-            WHERE u.Password = MD5(:Pass)
+            WHERE u.Password = :Pass
             ORDER BY u.Name ASC
         ')->setParameter('Pass', $password);
         return $query->getResult();

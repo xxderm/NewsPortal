@@ -57,7 +57,9 @@ class AuthorizationController extends AbstractController
             $user = new Users();
             $user->setName($req->get('username'));
             $user->setEmail($req->get('email'));
-            $user->setPassword($req->get('password'));
+			// Хеш пароля
+			$hash_pass = password_hash($req->get('password'), PASSWORD_DEFAULT);
+            $user->setPassword($hash_pass);
             $user->setRoleId(1);
             $user->setRegDate(date('Y-m-d G:i:s'));
 
@@ -114,19 +116,21 @@ class AuthorizationController extends AbstractController
         $submit = $req->request->get('token');
         if($this->isCsrfTokenValid('signin', $submit))
         {
-            $username = $req->get('username');
-            $password = $req->get('password');
-            $res = $this->getDoctrine()
-                ->getRepository(Users::class)
-                ->findUserByPasswordHash($password);
-
-            foreach ($res as $re)
-                if($re->getName() == $username)
-                {
-                    $this->session->set('object_symfony_session_usr', $re);
-                    return $this->redirect('/');
-                }
-
+			$username = $req->get('username');	
+			$res = $this->getDoctrine()
+								  ->getRepository(Users::class)
+								  ->findUserByName($username); 
+			if(!empty($res))
+			{
+				$usr_hash_pass = $res[0]->getPassword();	
+				$password = $req->get('password');	
+				if(password_verify($password, $usr_hash_pass))
+				{
+					
+					$this->session->set('object_symfony_session_usr', $res[0]);
+					return $this->redirect('/');
+				}         
+			}
             return $this->redirect('./SignIn?error=Incorrect login or password.');
         }
         return $this->redirect('./SignIn?error=Csrf token invalid.');
