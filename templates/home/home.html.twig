@@ -12,7 +12,7 @@
 	{% set usr = app.session.get('object_symfony_session_usr') %}
 	<div style="width:100%; height:100%;display:flex;flex-direction:column;align-items:center;">
 		{% for item in conn %}
-			<aside style="margin-left:10px;display:flex;flex-direction:column">
+			<aside style="display:flex;flex-direction:column">
 				<b style="line-heigth:2px;font-size:24px;">
 					<a href="./{{item.id}}" style="text-decoration:none; color:black;">{{item.Title}}</a>
 				</b>
@@ -27,7 +27,7 @@
 				{% if usr %}
 
 					{% if usr.RoleId == 2 or usr.Name == item.Userid %}
-						<div class="buttons" style="float:right; padding-right:5px;">
+						<div class="buttons" style="padding-right:5px;">
 							<a href="./append?id={{item.id}}" style="text-decoration:none; color:white; border:2px solid green; background-color:green;">Изменить</a>
 							<a href="./append?Remove={{item.id}}" style="text-decoration:none; color:white;border:2px solid red;background-color:red;">Удалить</a>
 						</div>

@@ -19,6 +19,11 @@ aside:hover {
     background-color: rgba(196, 236, 255, 0.5);
 }
 
+div .buttons {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
 aside span {
     color: rgb(122, 122, 122);
 }

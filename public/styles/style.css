@@ -29,7 +29,7 @@ center {
 header nav {
     width: 250px;
     background-color: rgb(59, 59, 59);
-    height: 100vh;
+    height: max-content;
     overflow-y: hidden;
     display: flex;
     flex-direction: column;

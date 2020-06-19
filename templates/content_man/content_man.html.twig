@@ -11,33 +11,31 @@
 	{{parent()}}
 	<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 	<script>
-		tinymce.init({
-			selector: 'textarea',
-			plugins:'image, visualblocks, table, codesample, directionality, lists, link, pagebreak, noneditable, paste, template',					
-			});
+		tinymce.init({selector: 'textarea', plugins: 'image, visualblocks, table, codesample, directionality, lists, link, pagebreak, noneditable, paste, template'});
 	</script>
 
 {% endblock %}
 
 {% block body %}
 	{{parent()}}
-	<form class="register-form" method="post" action="{{ path('app_content_post') }}" style="padding-top:50px;">
+	<form class="register-form" method="post" action="{{ path('app_content_post') }}" style="padding-top:50px;width:100%; height:100%;display:flex;flex-direction:column;align-items:center;">
+
 		{% if usr.getRoleId == 2 %}
 			{% if changecontent %}
-				<h2 style="color:black;margin-left:250px;">Change mod</h2>
+				<h2 style="color:black;">Change mod</h2>
 			{% else %}
-				<h2 style="color:black;margin-left:250px;">Append mode</h2>
+				<h2 style="color:black;">Append mode</h2>
 			{% endif %}
 		{% else %}
 			{% if changecontent %}
-				<h2 style="color:black;margin-left:250px;">Change mod</h2>
+				<h2 style="color:black;">Change mod</h2>
 			{% else %}
-				<h2 style="color:black;margin-left:250px;">Request mode</h2>
+				<h2 style="color:black;">Request mode</h2>
 			{% endif %}
 		{% endif %}
-		<label style="margin-left:250px;">Категория:
+		<label>Категория:
 		</label>
-		<select style="margin-left:5px; margin-top:5px;" name="category">
+		<select style="margin-top:5px;" name="category">
 			{% for type, items in nav_content.getNavContent %}
 				{% for key, value in items %}
 					{% if key == 'Name' %}
@@ -56,22 +54,23 @@
 			{% endfor %}
 		</select>
 		<br/>
-		<label style="margin-left:250px;">Название:
+		<label>Название:
 		</label>
 		{% if changecontent %}
-			<input name="title" value="{{changecontent.0.getTitle}}" style="margin-left:10px; margin-top:5px;" type="text"/>
+			<input name="title" value="{{changecontent.0.getTitle}}" style="margin-top:5px;" type="text"/>
 		{% else %}
-			<input name="title" style="margin-left:10px; margin-top:5px;" type="text"/>
+			<input name="title" style="margin-top:5px;" type="text"/>
 		{% endif %}
 		<br/>
-		<label style="margin-left:250px;">Описание:
+		<label>Описание:
 		</label>
 		{% if changecontent %}
-			<input name="desc" value="{{changecontent.0.getDescription}}" style="margin-left:6px; margin-top:5px;" type="text"/>
+			<input name="desc" value="{{changecontent.0.getDescription}}" style="margin-top:5px;" type="text"/>
 		{% else %}
-			<input name="desc" style="margin-left:10px; margin-top:5px;" type="text"/>
+			<input name="desc" style="margin-top:5px;" type="text"/>
 		{% endif %}
-		<textarea name="append_data" rows="45">
+		<br/><br/>
+		<textarea name="append_data" rows="40" cols="190">
 			{% if changecontent %}
 				{{changecontent.0.getContent | raw}}
 			{% endif %}
@@ -80,17 +79,17 @@
 			<input name="IsUpdate" value="{{changecontent.0.getId}}" visibility="hidden"/>
 		{% endif %}
 		<center>
-			<button style="margin-left:250px;
-																																																																																																																																												background-color: #4CAF50;
-																																																																																																																																												border: none;
-																																																																																																																																												color: white;
-																																																																																																																																												padding: 15px 32px;
-																																																																																																																																												text-align: center;
-																																																																																																																																												text-decoration: none;
-																																																																																																																																												display: inline-block;
-																																																																																																																																												font-size: 16px;">
+			<button style="																																																																																																																																																																																																																																																																														background-color: #4CAF50;
+																																																																																																																																																																																																																																																																																			border: none;
+																																																																																																																																																																																																																																																																																			color: white;
+																																																																																																																																																																																																																																																																																			padding: 15px 32px;
+																																																																																																																																																																																																																																																																																			text-align: center;
+																																																																																																																																																																																																																																																																																			text-decoration: none;
+																																																																																																																																																																																																																																																																																			display: inline-block;
+																																																																																																																																																																																																																																																																																			font-size: 16px;">
 				Append
 			</button>
 		</center>
+		<br/><br/><br/>
 	</form>
 {% endblock %}
