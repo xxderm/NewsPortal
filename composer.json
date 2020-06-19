@@ -2,6 +2,7 @@
     "type": "project",
     "license": "proprietary",
     "require": {
+		"symfony/assetic-bundle": "dev-master",
         "php": "7.3.9",
         "ext-ctype": "*",
         "ext-iconv": "*",

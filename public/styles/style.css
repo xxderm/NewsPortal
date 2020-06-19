@@ -2,6 +2,8 @@ body {
     width: 100%;
     margin: 0 auto;
     padding: 0 auto;
+    display: flex;
+    flex-direction: row;
 }
 
 .clearfix::after {
@@ -29,10 +31,10 @@ header nav {
     background-color: rgb(59, 59, 59);
     height: 100vh;
     overflow-y: hidden;
-    position: absolute;
+    display: flex;
+    flex-direction: column;
+    margin-top: 70px;
 }
-
-header nav ul {}
 
 header nav ul li {
     padding-top: 5px;

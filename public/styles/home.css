@@ -4,13 +4,15 @@ aside:first-child {
 
 aside {
     margin-top: 10px;
-    width: 65%;
+    width: 75%;
     padding-left: 10px;
     padding-top: 10px;
     padding-bottom: 10px;
     border-radius: 10px;
     background-color: rgba(196, 236, 255, 0.3);
     word-wrap: break-word;
+    display: flex;
+    flex-direction: column;
 }
 
 aside:hover {

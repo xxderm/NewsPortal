@@ -10,9 +10,9 @@
 {% block body %}
 	{{parent()}}
 	{% set usr = app.session.get('object_symfony_session_usr') %}
-	<div>
+	<div style="width:100%; height:100%;display:flex;flex-direction:column;align-items:center;">
 		{% for item in conn %}
-			<aside>
+			<aside style="margin-left:10px;display:flex;flex-direction:column">
 				<b style="line-heigth:2px;font-size:24px;">
 					<a href="./{{item.id}}" style="text-decoration:none; color:black;">{{item.Title}}</a>
 				</b>

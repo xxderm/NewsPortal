@@ -12,3 +12,9 @@ doctrine:
             string_functions:
                 # Match agains should have the path to the Md5 class created in the previous step
                 MD5: Doctrine\ORM\Md5
+
+assetic:
+    debug:          '%kernel.debug%'
+    use_controller: '%kernel.debug%'
+    filters:
+        cssrewrite: ~                
