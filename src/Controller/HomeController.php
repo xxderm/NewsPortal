@@ -34,9 +34,11 @@ class HomeController extends AbstractController
         else
         {
             $res = $res->getRepository(News::class)->findAllNews();
-        }		
+        }
+        // Для каждой новости
         foreach ($res as $re)
         {
+            // Устанавливаю категорию и пользователя по id
             $users = $this->getDoctrine()
                 ->getRepository(Users::class)
                 ->findUserById($re->getUserId());

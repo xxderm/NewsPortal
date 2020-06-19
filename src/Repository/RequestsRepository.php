@@ -28,7 +28,7 @@ class RequestsRepository extends EntityRepository
         $query = $entityManager->createQuery('
             SELECT u 
             FROM App\Entity\Requests u 
-            ORDER BY u.Name ASC
+            ORDER BY u.Title ASC
         ');
         return $query->getResult();
     }
