@@ -10,6 +10,7 @@ use App\Entity\Users;
 use App\Entity\News;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Doctrine\Persistence\ManagerRegistry;
 class RequestController extends AbstractController
 {
     private $session;
@@ -20,7 +21,7 @@ class RequestController extends AbstractController
     /**
      * @Route("dstoi/request", name = "Req", methods={"GET"})
      */
-    public function index()
+    public function index(Request $req)
     {
         // Если сессия пользователя == null -> редирект на главную
         if(is_null($this->session->get('object_symfony_session_usr')))
@@ -28,6 +29,36 @@ class RequestController extends AbstractController
         // Если роль - Админ -> Показать реквесты
         if($this->session->get('object_symfony_session_usr')->getRoleId() == 2)
         {
+            // Reject
+            if(!is_null($req->get('Reject')))
+            {
+                $entityManager = $this->getDoctrine()->getManager();
+                $req_vector = $entityManager
+                    ->getRepository(Requests::class)
+                    ->findReqById($req->get('Reject'));
+                $entityManager->remove($req_vector[0]);
+                $entityManager->flush();
+            }
+            // Accept
+            if(!is_null($req->get('Accept')))
+            {
+                $entityManager = $this->getDoctrine()->getManager();
+                $req_vector = $entityManager
+                    ->getRepository(Requests::class)
+                    ->findReqById($req->get('Accept'));
+                $news = new News();
+                $news->setTitle($req_vector[0]->getTitle());
+                $news->setDescription($req_vector[0]->getDescription());
+                $news->setDate($req_vector[0]->getDate());
+                $news->setContent($req_vector[0]->getContent());
+                $news->setUserId($req_vector[0]->getUserId());
+                $news->setEntityId($req_vector[0]->getEntityId());
+                $entityManager->remove($req_vector[0]);
+                $entityManager->persist($news);
+                $entityManager->flush();
+            }
+
+
             $rvec = $this
                 ->getDoctrine()
                 ->getRepository(Requests::class)

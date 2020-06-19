@@ -62,6 +62,7 @@ class ContentController extends AbstractController
             $res = $this->getDoctrine()
                 ->getRepository(News::class)
                 ->findNewsById($req->get('id'));
+            /////////////
             foreach ($res as $re)
             {
                 $users = $this->getDoctrine()
@@ -73,6 +74,7 @@ class ContentController extends AbstractController
                     ->findEntitiesById($re->getEntityId());
                 $re->setEntityId($entities[0]->getName());
             }
+            /////////////
             if($res[0]->getUserId() == $usr->getName() or $usr->getName() == "Admin")
             {
                 return $this->render(
