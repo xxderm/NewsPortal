@@ -154,6 +154,7 @@ class ContentController extends AbstractController
             $currNews = $em->getRepository(News::class)->findNewsById($id);
             $currNews[0]->setTitle($req->get('title'));
             $currNews[0]->setDescription($req->get('desc'));
+            $currNews[0]->setImage($req->get('image'));
             $currNews[0]->setDate(date('Y-m-d G:i:s'));
             $currNews[0]->setContent($req->get('append_data'));
             $currNews[0]->setUserId($usr->getId());

@@ -18,13 +18,19 @@
 						<a href="./{{item.id}}" style="text-decoration:none; color:black;">{{item.Title}}</a>
 					</b>
 					<br/>
-					<span>{{item.Userid}}</span>
+					<span>
+						<img src="./public/images/{{item.Image}}">
+					</span>
+					<span>Пользователь:
+						{{item.Userid}}</span>
 					<br/>
-					<span>{{item.Entityid}}</span>
+					<span>Категория:
+						{{item.Entityid}}</span>
 					<br/>
 					<p>{{item.Description}}</p>
 					<br/>
 					<span>{{item.Date}}</span>
+					<br/>
 					{% if usr %}
 
 						{% if usr.RoleId == 2 or usr.Name == item.Userid %}

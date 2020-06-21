@@ -73,9 +73,11 @@
 		<label>Изображение:
 		</label>
 		{% if changecontent %}
-			<input name="image" value="{{changecontent.0.getImage}}" style="margin-top:5px;" type="file"/>
+			<input type="file" name="image" id="file" class="inputfile">
+			<label for="file">{{changecontent.0.getImage}}</label>
 		{% else %}
-			<input name="image" style="margin-top:5px;" type="file"/>
+			<input type="file" name="image" id="file" class="inputfile">
+			<label for="file">Choose a file</label>
 		{% endif %}
 		<br/><br/>
 		<textarea name="append_data" rows="40" cols="190">
@@ -88,13 +90,13 @@
 		{% endif %}
 		<center>
 			<button style="																																																																																																																																																																																																																																																																														background-color: #4CAF50;
-																																																																																																																																																																																																																																																																																																																																					border: none;
-																																																																																																																																																																																																																																																																																																																																					color: white;
-																																																																																																																																																																																																																																																																																																																																					padding: 15px 32px;
-																																																																																																																																																																																																																																																																																																																																					text-align: center;
-																																																																																																																																																																																																																																																																																																																																					text-decoration: none;
-																																																																																																																																																																																																																																																																																																																																					display: inline-block;
-																																																																																																																																																																																																																																																																																																																																					font-size: 16px;">
+																																																																																																																																																																																																																																																																																																																																																																																																																										border: none;
+																																																																																																																																																																																																																																																																																																																																																																																																																										color: white;
+																																																																																																																																																																																																																																																																																																																																																																																																																										padding: 15px 32px;
+																																																																																																																																																																																																																																																																																																																																																																																																																										text-align: center;
+																																																																																																																																																																																																																																																																																																																																																																																																																										text-decoration: none;
+																																																																																																																																																																																																																																																																																																																																																																																																																										display: inline-block;
+																																																																																																																																																																																																																																																																																																																																																																																																																										font-size: 16px;">
 				Append
 			</button>
 		</center>

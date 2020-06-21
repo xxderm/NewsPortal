@@ -52,6 +52,7 @@ class RequestController extends AbstractController
                 $news->setDate($req_vector[0]->getDate());
                 $news->setContent($req_vector[0]->getContent());
                 $news->setUserId($req_vector[0]->getUserId());
+                $news->setImage($req_vector[0]->getImage());
                 $news->setEntityId($req_vector[0]->getEntityId());
                 $entityManager->remove($req_vector[0]);
                 $entityManager->persist($news);
