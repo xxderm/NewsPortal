@@ -17,17 +17,17 @@
 					<img src="./public/images/{{item.Image}}">
 				</span>
 				<br/>
-				<b style="line-heigth:2px;font-size:24px;">
+				<b style="line-heigth:2px;font-size:30px;">
 					<a href="./{{item.id}}?viewrequest=1" style="text-decoration:none; color:black;">«{{item.Title}}»</a>
 				</b>
 				<br/>
-				<span>Пользователь:
+				<span style="font-size:16px;">Пользователь:
 					{{item.Userid}}</span>
 				<br/>
-				<span>Категория:
+				<span style="font-size:16px;">Категория:
 					{{item.Entityid}}</span>
-				<p style="font-size:16px;">{{item.Description}}</p>
-				<span style="color:gray;">{{item.Date}}</span>
+				<p style="font-size:20px;font-weight: bold;">{{item.Description}}</p>
+				<span style="color:gray;font-size:12px;">{{item.Date}}</span>
 				<br/>
 				{% if usr %}
 					{% if usr.RoleId == 2 %}
