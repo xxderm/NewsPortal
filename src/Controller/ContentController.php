@@ -111,6 +111,7 @@ class ContentController extends AbstractController
             $vdata[] = $req->get('title');
             $vdata[] = $req->get('desc');
             $vdata[] = $req->get('append_data');
+            $vdata[] = $req->get('image');
             $res = $this->getDoctrine()
                 ->getRepository(Entities::class)
                 ->findEntitiesByName($vdata[0]);
@@ -123,6 +124,7 @@ class ContentController extends AbstractController
                 $news->setDescription($vdata[2]);
                 $news->setDate(date('Y-m-d G:i:s'));
                 $news->setContent($vdata[3]);
+                $news->setImage($vdata[4]);
                 $news->setUserId($usr->getId());
                 $news->setEntityId($catId);
                 $em->persist($news);
@@ -133,6 +135,7 @@ class ContentController extends AbstractController
                 $reqr->setDescription($vdata[2]);
                 $reqr->setDate(date('Y-m-d G:i:s'));
                 $reqr->setContent($vdata[3]);
+                $reqr->setImage($vdata[4]);
                 $reqr->setUserId($usr->getId());
                 $reqr->setEntityId($catId);
                 $em->persist($reqr);

@@ -72,6 +72,19 @@ class News
 	{
 		$this->Content = $content;
 	}
+	/**
+     * @ORM\Column(type="string", length=255)
+     *
+     */
+    private $Image;
+	public function getImage()
+	{
+		return $this->Image;
+	}
+	public function setImage($image)
+	{
+		$this->Image = $image;
+	}
     /**
      * @ORM\Column(type="string", length=255)
      *

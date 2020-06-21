@@ -1,42 +1,39 @@
-aside:first-child {
-    margin-top: 100px;
+html,
+body {
+    height: 100%;
 }
 
-aside {
-    margin-top: 10px;
-    width: 75%;
-    padding-left: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border-radius: 10px;
-    background-color: rgba(196, 236, 255, 0.3);
-    word-wrap: break-word;
+body {
+    margin: 0;
+}
+
+.flex-container {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     display: flex;
+    align-items: stretch;
+    justify-content: stretch;
     flex-direction: column;
 }
 
-aside:hover {
-    background-color: rgba(196, 236, 255, 0.5);
+.row {
+    width: auto;
 }
 
-div .buttons {
-    display: flex;
-    flex-direction: row-reverse;
-}
-
-aside span {
-    color: rgb(122, 122, 122);
-}
-
-.clearfix::after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-code {
-    background-color: #eee;
-    border-radius: 3px;
-    font-family: courier, monospace;
-    padding: 0 3px;
+.flex-item {
+    border: 1px solid blue;
+    padding: 5px;
+    line-height: 50px;
+    max-width: 1000px;
+    margin: 0px auto 20px;
+    padding: 0 3em 1.5em;
+    color: black;
+    font-weight: bold;
+    font-size: 14px;
+    text-align: left;
 }

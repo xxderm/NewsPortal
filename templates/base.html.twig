@@ -16,26 +16,30 @@
 	<body>
 		{% block body %}
 			{% set usr = app.session.get('object_symfony_session_usr') %}
-			<div id="slidetoggle" style="background-color:black;position:fixed;width:70px;margin-left:0;padding-left:23px;padding-bottom:18px;margin-top:0;padding-top:18px;margin-top:0;top:0;">
-				<img src="https://img.icons8.com/officel/30/000000/menu.png">
+			<div class="header_logo clearfix">
+				<div class="title clearfix">
+					<a href="/dstoi" style="text-decoration:none;">News Portal<b style="color:red;">.</b>
+					</a>
+				</div>
 			</div>
 			<header>
-				<div class="header_logo clearfix" style="position:fixed;top:0;left:80px;right:0;">
-					<center class="clearfix">
-						<a href="/dstoi" style="text-decoration:none; color:white;margin-left:-200px;align-items:center;">News Portal</a>
-					</center>
-				</div>
-				<nav id="block" role="navigation" style="overflow-y: auto; top:70px;display:flex;flex-direction:column;">
-					<center style="border: 1px solid black; background-color: #222; padding-bottom:20px;">
+				<nav id="block" role="navigation">
+					<ul class="Menu">
 						{% if not usr %}
-							<a style="text-decoration:none; color:white;font-size:14px;" href="./SignUp">Регистрация</a>
-							<a style="text-decoration:none;color:white;font-size:14px;" href="./SignIn">Вход</a>
+							<li>
+								<a href="./SignUp">Регистрация</a>
+							</li>
+							<li>
+								<a href="./SignIn">Вход</a>
+							</li>
 						{% else %}
-							<a style="text-decoration:none; color:white;font-size:14px;" href="./Profile">{{ usr.getName() }}</a>
-							<a style="text-decoration:none;color:white;font-size:14px;" href="./LogOut">Выход</a>
+							<li>
+								<a href="./Profile">{{ usr.getName() }}</a>
+							</li>
+							<li>
+								<a href="./LogOut">Выход</a>
+							</li>
 						{% endif %}
-					</center>
-					<ul>
 						{% if usr %}
 							<li>
 								<a href="{{ path('Profile') }}">Profile</a>
@@ -55,21 +59,21 @@
 								{% endif %}
 							{% endif %}
 						{% endif %}
-						<li>
-							<a href="#">Category
-								<img style="width:15px; heigth:15px;" src="./public/images/chevron.svg"></a>
-							<ul class="dropdown">
-								{% for type, items in nav_content.getNavContent %}
-									{% for key, value in items %}
-										{% if key == 'Name' %}
-											<li>
-												<a href="./?Category={{value}}">{{ value }}</a>
-											</li>
-										{% endif %}
-									{% endfor %}
-								{% endfor %}
-							</ul>
-						</li>
+
+
+						{% for type, items in nav_content.getNavContent %}
+							{% for key, value in items %}
+								{% if key == 'Name' %}
+
+									<li>
+										<a href="./?Category={{value}}">{{ value }}</a>
+									</li>
+
+								{% endif %}
+							{% endfor %}
+						{% endfor %}
+
+
 					</ul>
 				</nav>
 			</header>

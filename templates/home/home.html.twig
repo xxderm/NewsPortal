@@ -10,30 +10,33 @@
 {% block body %}
 	{{parent()}}
 	{% set usr = app.session.get('object_symfony_session_usr') %}
-	<div style="width:100%; height:100%;display:flex;flex-direction:column;align-items:center;">
-		{% for item in conn %}
-			<aside style="display:flex;flex-direction:column">
-				<b style="line-heigth:2px;font-size:24px;">
-					<a href="./{{item.id}}" style="text-decoration:none; color:black;">{{item.Title}}</a>
-				</b>
-				<br/>
-				<span>{{item.Userid}}</span>
-				<br/>
-				<span>{{item.Entityid}}</span>
-				<br/>
-				<p>{{item.Description}}</p>
-				<br/>
-				<span>{{item.Date}}</span>
-				{% if usr %}
+	<div class="flex-container">
+		<div class="row">
+			{% for item in conn %}
+				<aside class="flex-item">
+					<b style="line-heigth:2px;font-size:24px;">
+						<a href="./{{item.id}}" style="text-decoration:none; color:black;">{{item.Title}}</a>
+					</b>
+					<br/>
+					<span>{{item.Userid}}</span>
+					<br/>
+					<span>{{item.Entityid}}</span>
+					<br/>
+					<p>{{item.Description}}</p>
+					<br/>
+					<span>{{item.Date}}</span>
+					{% if usr %}
 
-					{% if usr.RoleId == 2 or usr.Name == item.Userid %}
-						<div class="buttons" style="padding-right:5px;">
-							<a href="./append?id={{item.id}}" style="text-decoration:none; color:white; border:2px solid green; background-color:green;">Изменить</a>
-							<a href="./append?Remove={{item.id}}" style="text-decoration:none; color:white;border:2px solid red;background-color:red;">Удалить</a>
-						</div>
+						{% if usr.RoleId == 2 or usr.Name == item.Userid %}
+							<div class="buttons" style="padding-right:5px;">
+								<a href="./append?id={{item.id}}" style="text-decoration:none; color:white; border:2px solid green; background-color:green;">Изменить</a>
+								<a href="./append?Remove={{item.id}}" style="text-decoration:none; color:white;border:2px solid red;background-color:red;">Удалить</a>
+							</div>
+						{% endif %}
 					{% endif %}
-				{% endif %}
-			</aside>
-		{% endfor %}
+				</aside>
+			{% endfor %}
+		</div>
+		<br/><br/><br/>
 	</div>
 {% endblock %}
