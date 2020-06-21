@@ -14,17 +14,22 @@
 		<div class="row">
 			{% for item in req_vec %}
 				<aside class="flex-item">
+					<span>
+						<img src="./public/images/{{item.Image}}">
+					</span>
+					<br/>
 					<b style="line-heigth:2px;font-size:24px;">
-						<a href="./{{item.id}}?viewrequest=1" style="text-decoration:none; color:black;">{{item.Title}}</a>
+						<a href="./{{item.id}}?viewrequest=1" style="text-decoration:none; color:black;">«{{item.Title}}»</a>
 					</b>
 					<br/>
-					<span>{{item.Userid}}</span>
+					<span>Пользователь:
+						{{item.Userid}}</span>
 					<br/>
-					<span>{{item.Entityid}}</span>
+					<span>Категория:
+						{{item.Entityid}}</span>
+					<p style="font-size:16px;">{{item.Description}}</p>
+					<span style="color:gray;">{{item.Date}}</span>
 					<br/>
-					<p>{{item.Description}}</p>
-					<br/>
-					<span>{{item.Date}}</span>
 					{% if usr %}
 						{% if usr.RoleId == 2 %}
 							<div class="buttons">

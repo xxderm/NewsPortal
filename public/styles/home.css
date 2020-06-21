@@ -8,11 +8,10 @@ body {
 }
 
 aside img {
+    padding-top: 5px;
     vertical-align: top;
-    max-width: 50%;
+    max-width: auto;
     height: auto;
-    float: right;
-    object-fit: contain;
 }
 
 .flex-container {
@@ -38,6 +37,7 @@ aside img {
     padding: 5px;
     line-height: 50px;
     max-width: 1000px;
+    width: auto;
     margin: 0px auto 20px;
     padding: 0 3em 1.5em;
     color: black;

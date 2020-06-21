@@ -14,22 +14,21 @@
 		<div class="row">
 			{% for item in conn %}
 				<aside class="flex-item">
-					<b style="line-heigth:2px;font-size:24px;">
-						<a href="./{{item.id}}" style="text-decoration:none; color:black;">{{item.Title}}</a>
-					</b>
-					<br/>
 					<span>
 						<img src="./public/images/{{item.Image}}">
 					</span>
+					<br/>
+					<b style="line-heigth:2px;font-size:24px;">
+						<a href="./{{item.id}}" style="text-decoration:none; color:black;">«{{item.Title}}»</a>
+					</b>
+					<br/>
 					<span>Пользователь:
 						{{item.Userid}}</span>
 					<br/>
 					<span>Категория:
 						{{item.Entityid}}</span>
-					<br/>
-					<p>{{item.Description}}</p>
-					<br/>
-					<span>{{item.Date}}</span>
+					<p style="font-size:16px;">{{item.Description}}</p>
+					<span style="color:gray;">{{item.Date}}</span>
 					<br/>
 					{% if usr %}
 
