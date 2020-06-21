@@ -11,35 +11,33 @@
 	{{parent()}}
 	{% set usr = app.session.get('object_symfony_session_usr') %}
 	<div class="flex-container">
-		<div class="row">
-			{% for item in req_vec %}
-				<aside class="flex-item">
-					<span>
-						<img src="./public/images/{{item.Image}}">
-					</span>
-					<br/>
-					<b style="line-heigth:2px;font-size:24px;">
-						<a href="./{{item.id}}?viewrequest=1" style="text-decoration:none; color:black;">«{{item.Title}}»</a>
-					</b>
-					<br/>
-					<span>Пользователь:
-						{{item.Userid}}</span>
-					<br/>
-					<span>Категория:
-						{{item.Entityid}}</span>
-					<p style="font-size:16px;">{{item.Description}}</p>
-					<span style="color:gray;">{{item.Date}}</span>
-					<br/>
-					{% if usr %}
-						{% if usr.RoleId == 2 %}
-							<div class="buttons">
-								<a href="./request?Accept={{item.id}}" style="text-decoration:none; color:white; border:2px solid green; background-color:green;">Accept</a>
-								<a href="./request?Reject={{item.id}}" style="text-decoration:none; color:white;border:2px solid red;background-color:red;">Reject</a>
-							</div>
-						{% endif %}
+		{% for item in req_vec %}
+			<aside class="flex-item">
+				<span>
+					<img src="./public/images/{{item.Image}}">
+				</span>
+				<br/>
+				<b style="line-heigth:2px;font-size:24px;">
+					<a href="./{{item.id}}?viewrequest=1" style="text-decoration:none; color:black;">«{{item.Title}}»</a>
+				</b>
+				<br/>
+				<span>Пользователь:
+					{{item.Userid}}</span>
+				<br/>
+				<span>Категория:
+					{{item.Entityid}}</span>
+				<p style="font-size:16px;">{{item.Description}}</p>
+				<span style="color:gray;">{{item.Date}}</span>
+				<br/>
+				{% if usr %}
+					{% if usr.RoleId == 2 %}
+						<div class="buttons">
+							<a href="./request?Accept={{item.id}}" style="text-decoration:none; color:white; border:2px solid green; background-color:green;">Accept</a>
+							<a href="./request?Reject={{item.id}}" style="text-decoration:none; color:white;border:2px solid red;background-color:red;">Reject</a>
+						</div>
 					{% endif %}
-				</aside>
-			{% endfor %}
-		</div>
+				{% endif %}
+			</aside>
+		{% endfor %}
 	</div>
 {% endblock %}

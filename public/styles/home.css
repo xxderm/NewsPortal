@@ -1,6 +1,7 @@
 html,
 body {
-    height: 100%;
+    padding: 1em;
+    font-family: arial;
 }
 
 body {
@@ -10,42 +11,26 @@ body {
 aside img {
     padding-top: 5px;
     vertical-align: top;
-    max-width: 600px;
+    max-width: 400px;
     height: auto;
 }
 
 .flex-container {
-    height: 100%;
-    padding: 0;
-    margin: 0;
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
     display: flex;
-    align-items: stretch;
-    justify-content: stretch;
-    flex-direction: column;
-}
-
-.row {
-    width: auto;
+    justify-content: center;
+    padding: 5px;
+    flex-wrap: wrap;
 }
 
 .flex-item {
     background-color: rgba(249, 242, 242, 1);
-    padding: 5px;
-    line-height: 50px;
-    max-width: 1000px;
-    width: auto;
-    margin: 0px auto 20px;
-    padding: 0 3em 1.5em;
-    color: black;
-    font-weight: bold;
-    font-size: 14px;
-    text-align: left;
+    font-size: 2.5rem;
+    color: rgb(24, 24, 24);
+    margin: 5px;
+    padding: 15px;
+    width: min-content;
 }
 
-.flex-item:hover {
-    background-color: rgba(249, 242, 242, 0.5);
+.flex-item:first-child {
+    flex-basis: 50%;
 }
