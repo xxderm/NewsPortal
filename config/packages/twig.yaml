@@ -2,6 +2,7 @@ twig:
     default_path: '%kernel.project_dir%/templates'
     globals:
         nav_content: '@App\Controller\HomeController'  
+        temperature_content: '@App\Controller\HomeController'
         
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"

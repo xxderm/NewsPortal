@@ -20,6 +20,21 @@
 				<div class="title clearfix">
 					<a href="/dstoi" style="text-decoration:none;">News Portal<b style="color:red;">.</b>
 					</a>
+					<div class="temp_cont">
+						<ul>
+							<li>Температура:
+								{{temperature_content.getTemperature.0.tmpre}}°C</li>
+							<li>Ощущается как:
+								{{temperature_content.getTemperature.1.fl}}°C</li>
+							<li>Минимальная температура:
+								{{temperature_content.getTemperature.2.tmpremin}}°C</li>
+							<li>Максимальная температура:
+								{{temperature_content.getTemperature.3.tmpremax}}°C</li>
+						</ul>
+					</div>
+					<div class="find_cont">
+						<input type="search" id="search" placeholder="Search..."/>
+					</div>
 				</div>
 			</div>
 			<header>

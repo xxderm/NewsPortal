@@ -17,7 +17,7 @@ class NewsRepository extends EntityRepository
             SELECT u 
             FROM App\Entity\News u 
             WHERE u.id = :id
-            ORDER BY u.Title DESC
+            ORDER BY u.Date DESC
         ')->setParameter('id', $id);
         return $query->getResult();
     }
@@ -27,7 +27,7 @@ class NewsRepository extends EntityRepository
         $query = $entityManager->createQuery('
             SELECT u 
             FROM App\Entity\News u 
-            ORDER BY u.Title DESC
+            ORDER BY u.Date DESC
         ');
         return $query->getResult();
     }
@@ -38,7 +38,7 @@ class NewsRepository extends EntityRepository
             SELECT u 
             FROM App\Entity\News u 
             WHERE u.Entity_id = :id
-            ORDER BY u.Title DESC
+            ORDER BY u.Date DESC
         ')->setParameter('id', $id);
         return $query->getResult();
     }

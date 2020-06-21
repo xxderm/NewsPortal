@@ -15,6 +15,30 @@ header {
     padding: 0 3em 1.5em;
 }
 
+.temp_cont {
+    float: right;
+}
+
+.temp_cont li {
+    list-style-type: none;
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.find_cont input#search {
+    width: 300px;
+    height: 50px;
+    background: #2b303b;
+    border: none;
+    font-size: 10pt;
+    float: left;
+    color: #63717f;
+    padding-left: 45px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
 .clearfix::after {
     content: "";
     display: table;

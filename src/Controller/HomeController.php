@@ -49,14 +49,6 @@ class HomeController extends AbstractController
             $re->setEntityId($entities[0]->getName());
         }
 
-        //$data_file = 'http://api.openweathermap.org/data/2.5/weather?q=magnitogorsk&units=metric&APPID=6c7a8ba74435652b4c9d56dca00e0fc8';
-        //$j = file_get_contents($data_file);
-        // //$data = json_decode($j);
-        //json_decode($j);
-        //var_dump(json_decode($j, true)["main"]["temp"]);
-        //echo $j["temp"];
-        //die();
-
         return $this->render(
             'home/home.html.twig',
             [
@@ -75,6 +67,21 @@ class HomeController extends AbstractController
             $NavContentArray[] = ['id' => $value->getId()];
         }
         return $NavContentArray;
+    }
+    public  function getTemperature()
+    {
+        $data_file = 'http://api.openweathermap.org/data/2.5/weather?q=magnitogorsk&units=metric&APPID=6c7a8ba74435652b4c9d56dca00e0fc8';
+        $j = file_get_contents($data_file);
+        $temperature = json_decode($j, true)["main"]["temp"];
+        $feels_like = json_decode($j, true)["main"]["feels_like"];
+        $temperature_min = json_decode($j, true)["main"]["temp_min"];
+        $temperature_max = json_decode($j, true)["main"]["temp_max"];
+        $TempVect = [];
+        $TempVect[] = ['tmpre' => $temperature];
+        $TempVect[] = ['fl' => $feels_like];
+        $TempVect[] = ['tmpremin' => $temperature_min];
+        $TempVect[] = ['tmpremax' => $temperature_max];
+        return $TempVect;
     }
 }
 ?>
